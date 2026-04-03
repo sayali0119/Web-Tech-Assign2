@@ -1,62 +1,94 @@
-# call-bind-apply-helpers <sup>[![Version Badge][npm-version-svg]][package-url]</sup>
+# content-type
 
-[![github actions][actions-image]][actions-url]
-[![coverage][codecov-image]][codecov-url]
-[![dependency status][deps-svg]][deps-url]
-[![dev dependency status][dev-deps-svg]][dev-deps-url]
-[![License][license-image]][license-url]
-[![Downloads][downloads-image]][downloads-url]
+[![NPM Version][npm-version-image]][npm-url]
+[![NPM Downloads][npm-downloads-image]][npm-url]
+[![Node.js Version][node-image]][node-url]
+[![Build Status][ci-image]][ci-url]
+[![Coverage Status][coveralls-image]][coveralls-url]
 
-[![npm badge][npm-badge-png]][package-url]
+Create and parse HTTP Content-Type header according to RFC 7231
 
-Helper functions around Function call/apply/bind, for use in `call-bind`.
-
-The only packages that should likely ever use this package directly are `call-bind` and `get-intrinsic`.
-Please use `call-bind` unless you have a very good reason not to.
-
-## Getting started
+## Installation
 
 ```sh
-npm install --save call-bind-apply-helpers
+$ npm install content-type
 ```
 
-## Usage/Examples
+## API
 
 ```js
-const assert = require('assert');
-const callBindBasic = require('call-bind-apply-helpers');
-
-function f(a, b) {
-	assert.equal(this, 1);
-	assert.equal(a, 2);
-	assert.equal(b, 3);
-	assert.equal(arguments.length, 2);
-}
-
-const fBound = callBindBasic([f, 1]);
-
-delete Function.prototype.call;
-delete Function.prototype.bind;
-
-fBound(2, 3);
+var contentType = require('content-type')
 ```
 
-## Tests
+### contentType.parse(string)
 
-Clone the repo, `npm install`, and run `npm test`
+```js
+var obj = contentType.parse('image/svg+xml; charset=utf-8')
+```
 
-[package-url]: https://npmjs.org/package/call-bind-apply-helpers
-[npm-version-svg]: https://versionbadg.es/ljharb/call-bind-apply-helpers.svg
-[deps-svg]: https://david-dm.org/ljharb/call-bind-apply-helpers.svg
-[deps-url]: https://david-dm.org/ljharb/call-bind-apply-helpers
-[dev-deps-svg]: https://david-dm.org/ljharb/call-bind-apply-helpers/dev-status.svg
-[dev-deps-url]: https://david-dm.org/ljharb/call-bind-apply-helpers#info=devDependencies
-[npm-badge-png]: https://nodei.co/npm/call-bind-apply-helpers.png?downloads=true&stars=true
-[license-image]: https://img.shields.io/npm/l/call-bind-apply-helpers.svg
-[license-url]: LICENSE
-[downloads-image]: https://img.shields.io/npm/dm/call-bind-apply-helpers.svg
-[downloads-url]: https://npm-stat.com/charts.html?package=call-bind-apply-helpers
-[codecov-image]: https://codecov.io/gh/ljharb/call-bind-apply-helpers/branch/main/graphs/badge.svg
-[codecov-url]: https://app.codecov.io/gh/ljharb/call-bind-apply-helpers/
-[actions-image]: https://img.shields.io/endpoint?url=https://github-actions-badge-u3jn4tfpocch.runkit.sh/ljharb/call-bind-apply-helpers
-[actions-url]: https://github.com/ljharb/call-bind-apply-helpers/actions
+Parse a `Content-Type` header. This will return an object with the following
+properties (examples are shown for the string `'image/svg+xml; charset=utf-8'`):
+
+ - `type`: The media type (the type and subtype, always lower case).
+   Example: `'image/svg+xml'`
+
+ - `parameters`: An object of the parameters in the media type (name of parameter
+   always lower case). Example: `{charset: 'utf-8'}`
+
+Throws a `TypeError` if the string is missing or invalid.
+
+### contentType.parse(req)
+
+```js
+var obj = contentType.parse(req)
+```
+
+Parse the `Content-Type` header from the given `req`. Short-cut for
+`contentType.parse(req.headers['content-type'])`.
+
+Throws a `TypeError` if the `Content-Type` header is missing or invalid.
+
+### contentType.parse(res)
+
+```js
+var obj = contentType.parse(res)
+```
+
+Parse the `Content-Type` header set on the given `res`. Short-cut for
+`contentType.parse(res.getHeader('content-type'))`.
+
+Throws a `TypeError` if the `Content-Type` header is missing or invalid.
+
+### contentType.format(obj)
+
+```js
+var str = contentType.format({
+  type: 'image/svg+xml',
+  parameters: { charset: 'utf-8' }
+})
+```
+
+Format an object into a `Content-Type` header. This will return a string of the
+content type for the given object with the following properties (examples are
+shown that produce the string `'image/svg+xml; charset=utf-8'`):
+
+ - `type`: The media type (will be lower-cased). Example: `'image/svg+xml'`
+
+ - `parameters`: An object of the parameters in the media type (name of the
+   parameter will be lower-cased). Example: `{charset: 'utf-8'}`
+
+Throws a `TypeError` if the object contains an invalid type or parameter names.
+
+## License
+
+[MIT](LICENSE)
+
+[ci-image]: https://badgen.net/github/checks/jshttp/content-type/master?label=ci
+[ci-url]: https://github.com/jshttp/content-type/actions/workflows/ci.yml
+[coveralls-image]: https://badgen.net/coveralls/c/github/jshttp/content-type/master
+[coveralls-url]: https://coveralls.io/r/jshttp/content-type?branch=master
+[node-image]: https://badgen.net/npm/node/content-type
+[node-url]: https://nodejs.org/en/download
+[npm-downloads-image]: https://badgen.net/npm/dm/content-type
+[npm-url]: https://npmjs.org/package/content-type
+[npm-version-image]: https://badgen.net/npm/v/content-type
