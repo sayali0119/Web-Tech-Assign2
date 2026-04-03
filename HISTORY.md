@@ -1,29 +1,60 @@
-1.0.5 / 2023-01-29
+0.5.4 / 2021-12-10
 ==================
 
-  * perf: skip value escaping when unnecessary
+  * deps: safe-buffer@5.2.1
 
-1.0.4 / 2017-09-11
+0.5.3 / 2018-12-17
 ==================
 
-  * perf: skip parameter parsing when no parameters
+  * Use `safe-buffer` for improved Buffer API
 
-1.0.3 / 2017-09-10
+0.5.2 / 2016-12-08
 ==================
 
-  * perf: remove argument reassignment
+  * Fix `parse` to accept any linear whitespace character
 
-1.0.2 / 2016-05-09
+0.5.1 / 2016-01-17
 ==================
 
   * perf: enable strict mode
 
-1.0.1 / 2015-02-13
+0.5.0 / 2014-10-11
 ==================
 
-  * Improve missing `Content-Type` header error message
+  * Add `parse` function
 
-1.0.0 / 2015-02-01
+0.4.0 / 2014-09-21
 ==================
 
-  * Initial implementation, derived from `media-typer@0.3.0`
+  * Expand non-Unicode `filename` to the full ISO-8859-1 charset
+
+0.3.0 / 2014-09-20
+==================
+
+  * Add `fallback` option
+  * Add `type` option
+
+0.2.0 / 2014-09-19
+==================
+
+  * Reduce ambiguity of file names with hex escape in buggy browsers
+
+0.1.2 / 2014-09-19
+==================
+
+  * Fix periodic invalid Unicode filename header
+
+0.1.1 / 2014-09-19
+==================
+
+  * Fix invalid characters appearing in `filename*` parameter
+
+0.1.0 / 2014-09-18
+==================
+
+  * Make the `filename` argument optional
+
+0.0.0 / 2014-09-18
+==================
+
+  * Initial release
