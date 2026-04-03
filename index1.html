@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BloodLink Emergency</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+    <h1>🩸 BloodLink</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#donor">Donate</a>
+        <a href="#request">Request</a>
+    </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-text">
+        <h2>Donate Blood, Save Lives ❤️</h2>
+        <p>Find blood donors instantly during emergencies</p>
+        <button onclick="scrollToSection()">Request Blood</button>
+    </div>
+</section>
+
+<!-- Services -->
+<section class="services">
+    <h2>Our Services</h2>
+
+    <div class="card-container">
+
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png">
+            <h3>Find Donors</h3>
+            <p>Search nearby blood donors easily</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/4320/4320337.png">
+            <h3>Emergency Help</h3>
+            <p>Instant blood request in emergency</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3771/3771417.png">
+            <h3>Save Lives</h3>
+            <p>Be a hero by donating blood</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Donor Section -->
+<section id="donor" class="form-section">
+    <h2>Become a Donor</h2>
+    <form id="donorForm">
+        <input type="text" placeholder="Full Name" required>
+        <input type="text" placeholder="Blood Group" required>
+        <input type="text" placeholder="City" required>
+        <input type="number" placeholder="Contact" required>
+        <button type="submit">Register</button>
+    </form>
+</section>
+
+<!-- Request -->
+<section id="request" class="form-section">
+    <h2>Request Blood</h2>
+    <form id="requestForm">
+        <input type="text" placeholder="Patient Name" required>
+        <input type="text" placeholder="Blood Group Needed" required>
+        <input type="text" placeholder="Hospital Location" required>
+        <button type="submit">Send Request</button>
+    </form>
+</section>
+
+<!-- Donor List -->
+<section class="donor-list">
+    <h2>Available Donors</h2>
+    <ul id="donorData"></ul>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 BloodLink | Save Lives ❤️</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
