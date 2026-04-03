@@ -1,9 +1,15 @@
-// This is free and unencumbered software released into the public domain.
-// See LICENSE.md for more information.
+'use strict';
 
-var encoding = require("./lib/encoding.js");
+var bind = require('function-bind');
+var $TypeError = require('es-errors/type');
 
-module.exports = {
-  TextEncoder: encoding.TextEncoder,
-  TextDecoder: encoding.TextDecoder,
+var $call = require('./functionCall');
+var $actualApply = require('./actualApply');
+
+/** @type {(args: [Function, thisArg?: unknown, ...args: unknown[]]) => Function} TODO FIXME, find a way to use import('.') */
+module.exports = function callBindBasic(args) {
+	if (args.length < 1 || typeof args[0] !== 'function') {
+		throw new $TypeError('a function is required');
+	}
+	return $actualApply(bind, $call, args);
 };
