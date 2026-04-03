@@ -1,87 +1,155 @@
 {
-  "name": "@mongodb-js/saslprep",
-  "description": "SASLprep: Stringprep Profile for User Names and Passwords, rfc4013",
-  "keywords": [
-    "sasl",
-    "saslprep",
-    "stringprep",
-    "rfc4013",
-    "4013"
-  ],
-  "author": "Dmitry Tsvettsikh <me@reklatsmasters.com>",
-  "publishConfig": {
-    "access": "public"
-  },
-  "main": "dist/node.js",
-  "bugs": {
-    "url": "https://jira.mongodb.org/projects/COMPASS/issues",
-    "email": "compass@mongodb.com"
-  },
-  "homepage": "https://github.com/mongodb-js/devtools-shared/tree/main/packages/saslprep",
-  "version": "1.4.6",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mongodb-js/devtools-shared.git"
-  },
-  "files": [
-    "dist"
-  ],
-  "license": "MIT",
-  "exports": {
-    "browser": {
-      "types": "./dist/browser.d.ts",
-      "default": "./dist/browser.js"
+    "name": "@types/node",
+    "version": "25.5.0",
+    "description": "TypeScript definitions for node",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Microsoft TypeScript",
+            "githubUsername": "Microsoft",
+            "url": "https://github.com/Microsoft"
+        },
+        {
+            "name": "Alberto Schiabel",
+            "githubUsername": "jkomyno",
+            "url": "https://github.com/jkomyno"
+        },
+        {
+            "name": "Andrew Makarov",
+            "githubUsername": "r3nya",
+            "url": "https://github.com/r3nya"
+        },
+        {
+            "name": "Benjamin Toueg",
+            "githubUsername": "btoueg",
+            "url": "https://github.com/btoueg"
+        },
+        {
+            "name": "David Junger",
+            "githubUsername": "touffy",
+            "url": "https://github.com/touffy"
+        },
+        {
+            "name": "Mohsen Azimi",
+            "githubUsername": "mohsen1",
+            "url": "https://github.com/mohsen1"
+        },
+        {
+            "name": "Nikita Galkin",
+            "githubUsername": "galkin",
+            "url": "https://github.com/galkin"
+        },
+        {
+            "name": "Sebastian Silbermann",
+            "githubUsername": "eps1lon",
+            "url": "https://github.com/eps1lon"
+        },
+        {
+            "name": "Wilco Bakker",
+            "githubUsername": "WilcoBakker",
+            "url": "https://github.com/WilcoBakker"
+        },
+        {
+            "name": "Marcin Kopacz",
+            "githubUsername": "chyzwar",
+            "url": "https://github.com/chyzwar"
+        },
+        {
+            "name": "Trivikram Kamat",
+            "githubUsername": "trivikr",
+            "url": "https://github.com/trivikr"
+        },
+        {
+            "name": "Junxiao Shi",
+            "githubUsername": "yoursunny",
+            "url": "https://github.com/yoursunny"
+        },
+        {
+            "name": "Ilia Baryshnikov",
+            "githubUsername": "qwelias",
+            "url": "https://github.com/qwelias"
+        },
+        {
+            "name": "ExE Boss",
+            "githubUsername": "ExE-Boss",
+            "url": "https://github.com/ExE-Boss"
+        },
+        {
+            "name": "Piotr Błażejewicz",
+            "githubUsername": "peterblazejewicz",
+            "url": "https://github.com/peterblazejewicz"
+        },
+        {
+            "name": "Anna Henningsen",
+            "githubUsername": "addaleax",
+            "url": "https://github.com/addaleax"
+        },
+        {
+            "name": "Victor Perin",
+            "githubUsername": "victorperin",
+            "url": "https://github.com/victorperin"
+        },
+        {
+            "name": "NodeJS Contributors",
+            "githubUsername": "NodeJS",
+            "url": "https://github.com/NodeJS"
+        },
+        {
+            "name": "Linus Unnebäck",
+            "githubUsername": "LinusU",
+            "url": "https://github.com/LinusU"
+        },
+        {
+            "name": "wafuwafu13",
+            "githubUsername": "wafuwafu13",
+            "url": "https://github.com/wafuwafu13"
+        },
+        {
+            "name": "Matteo Collina",
+            "githubUsername": "mcollina",
+            "url": "https://github.com/mcollina"
+        },
+        {
+            "name": "Dmitry Semigradsky",
+            "githubUsername": "Semigradsky",
+            "url": "https://github.com/Semigradsky"
+        },
+        {
+            "name": "René",
+            "githubUsername": "Renegade334",
+            "url": "https://github.com/Renegade334"
+        },
+        {
+            "name": "Yagiz Nizipli",
+            "githubUsername": "anonrig",
+            "url": "https://github.com/anonrig"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "typesVersions": {
+        "<=5.6": {
+            "*": [
+                "ts5.6/*"
+            ]
+        },
+        "<=5.7": {
+            "*": [
+                "ts5.7/*"
+            ]
+        }
     },
-    "import": {
-      "types": "./dist/node.d.ts",
-      "default": "./dist/.esm-wrapper.mjs"
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/node"
     },
-    "require": {
-      "types": "./dist/node.d.ts",
-      "default": "./dist/node.js"
-    }
-  },
-  "types": "./dist/node.d.ts",
-  "scripts": {
-    "gen-code-points": "ts-node src/generate-code-points.ts src/code-points-data.ts src/code-points-data-browser.ts",
-    "bootstrap": "npm run compile",
-    "prepublishOnly": "npm run compile",
-    "compile": "npm run gen-code-points && tsc -p tsconfig.json && gen-esm-wrapper . ./dist/.esm-wrapper.mjs",
-    "typecheck": "tsc --noEmit",
-    "eslint": "eslint",
-    "prettier": "prettier",
-    "lint": "npm run eslint . && npm run prettier -- --check .",
-    "depcheck": "depcheck",
-    "check": "npm run typecheck && npm run lint && npm run depcheck",
-    "check-ci": "npm run check",
-    "test": "mocha",
-    "test-cov": "nyc -x \"**/*.spec.*\" --reporter=lcov --reporter=text --reporter=html npm run test",
-    "test-watch": "npm run test -- --watch",
-    "test-ci": "npm run test-cov",
-    "reformat": "npm run prettier -- --write ."
-  },
-  "dependencies": {
-    "sparse-bitfield": "^3.0.3"
-  },
-  "devDependencies": {
-    "@mongodb-js/eslint-config-devtools": "^0.11.3",
-    "@mongodb-js/mocha-config-devtools": "^1.1.0",
-    "@mongodb-js/prettier-config-devtools": "^1.0.2",
-    "@mongodb-js/tsconfig-devtools": "^1.1.1",
-    "@types/chai": "^4.2.21",
-    "@types/mocha": "^9.1.1",
-    "@types/node": "^22.15.30",
-    "@types/sinon-chai": "^3.2.5",
-    "@types/sparse-bitfield": "^3.0.1",
-    "chai": "^4.5.0",
-    "depcheck": "^1.4.7",
-    "eslint": "^7.25.0 || ^8.0.0",
-    "gen-esm-wrapper": "^1.1.3",
-    "mocha": "^8.4.0",
-    "nyc": "^15.1.0",
-    "prettier": "^3.5.3",
-    "sinon": "^9.2.3",
-    "typescript": "^5.9.3"
-  },
-  "gitHead": "351125bdca5cc071e432b25605b411b00b2eb336"
+    "scripts": {},
+    "dependencies": {
+        "undici-types": "~7.18.0"
+    },
+    "peerDependencies": {},
+    "typesPublisherContentHash": "4b6968335abe1dc64bd6086fd546d6e9c50f986c37d49de8073f4ed1c900057c",
+    "typeScriptVersion": "5.2"
 }
